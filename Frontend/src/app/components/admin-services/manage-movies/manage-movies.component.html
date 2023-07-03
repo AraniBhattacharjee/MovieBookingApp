@@ -1,0 +1,25 @@
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
+<div class="manage-movies-page" *ngIf="!isLoading">
+  <div class="add-movie-button-container">
+    <h2>Manage Movies</h2>
+    <button mat-raised-button color="primary" routerLink="/admin/add-new-movie">
+      Add Movie
+    </button>
+  </div>
+  <div class="movie-list">
+    <div class="movie-card" *ngFor="let movie of movies">
+      <div class="movie-info">
+        <div class="details-container">
+          <h3>{{ movie.movieName }}</h3>
+          <p><strong>Theatre Name:</strong> {{ movie.theatreName }}</p>
+          <p><strong>No of Seats:</strong> {{ movie.noOfTickets }}</p>
+        </div>
+      </div>
+      <div class="button-container">
+        <button mat-icon-button color="warn" (click)="deleteMovie(movie.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

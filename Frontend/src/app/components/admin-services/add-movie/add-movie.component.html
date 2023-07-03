@@ -1,0 +1,41 @@
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
+<mat-card *ngIf="!isLoading" class="add-movie-card">
+  <mat-card-header class="add-movie-header">
+    <mat-card-title class="add-movie-title">Add Movie</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="add-movie-content">
+    <form class="add-movie-form" (ngSubmit)="submitMovieForm()">
+      <mat-form-field class="add-movie-field">
+        <mat-label>Movie Name</mat-label>
+        <input
+          matInput
+          placeholder="Movie Name"
+          [(ngModel)]="addMovieRequest.movieName"
+          name="movieName"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="add-movie-field">
+        <mat-label>Theater</mat-label>
+          <input
+              matInput
+              [(ngModel)]="addMovieRequest.theatreName"
+              name="theatreName"
+              required
+          />
+      </mat-form-field>
+      <mat-form-field class="add-movie-field">
+        <mat-label>Total Seats</mat-label>
+            <input
+              matInput
+              placeholder="Seats"
+              [(ngModel)]="addMovieRequest.noOfTickets"
+              name="seats"
+              required
+            />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="submit-button">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

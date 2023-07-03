@@ -1,0 +1,17 @@
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
+<div *ngIf="!isLoading" class="movie-details-container">
+  <h3>Available Shows:</h3>
+  <div class="show-list">
+    <div *ngFor="let show of shows" class="show-card">
+      <div class="theater-info">
+        <p><strong>Movie:</strong> {{ show.movieName }}</p>
+        <p><strong>Theater:</strong> {{ show.theatreName }}</p>
+        <p>
+          <strong>Available Seats:</strong>
+          {{ show.totalSeatsAvailable }}
+        </p>
+      </div>
+      <button mat-raised-button color="primary" (click)="bookTicket(show.movieName, show.theatreName)">Book Ticket</button>
+    </div>
+  </div>
+</div>

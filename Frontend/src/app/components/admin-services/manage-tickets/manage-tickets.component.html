@@ -1,0 +1,17 @@
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
+<div class="manage-tickets-page" *ngIf="!isLoading">
+  <div class="ticket-list">
+    <div class="ticket-card" *ngFor="let ticket of tickets">
+      <div class="ticket-info">
+        <div class="ticket-container">
+          <h3><strong>{{ ticket.userId }}</strong></h3>
+          <p>Movie Name: {{ ticket.movieName }}</p>
+          <p>Theatre Name: {{ ticket.theatreName }}</p>
+          <p>Seats Booked: {{ ticket.numSeats }}</p>
+          <p>Ticket Status: {{ ticket.status }} <button mat-button class="status-edit-btn" (onClick)="openDialog(ticket.id)">Edit Status</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
